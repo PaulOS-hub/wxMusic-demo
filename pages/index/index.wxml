@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="banner">
+		<swiper wx:if="{{ hasBanner }}" autoplay="true" indicator-dots="true" indicator-color="ivory" indicator-active-color="#d43c33">
+			<swiper-item wx:for="{{ bannerList }}" wx:for-item="item" wx:key="bannerId">
+				<image src="{{ item.pic }}" />
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="navContainer">
+		<view bindtap="toRecommend" class="nav-item" hover-class="none" hover-stop-propagation="false">
+			<view class="nav-item-list iconfont icon-tuijian" hover-class="none" hover-stop-propagation="false" />
+			<view class="title" selectable="false" space="false" decode="false">每日推荐</view>
+		</view>
+		<view class="nav-item" hover-class="none" hover-stop-propagation="false">
+			<view class="nav-item-list iconfont icon-gedan" hover-class="none" hover-stop-propagation="false" />
+			<view class="title" selectable="false" space="false" decode="false">歌单</view>
+		</view>
+		<view class="nav-item" hover-class="none" hover-stop-propagation="false">
+			<view class="nav-item-list iconfont icon-_huabanfuben" hover-class="none" hover-stop-propagation="false" />
+			<view class="title" selectable="false" space="false" decode="false">排行榜</view>
+		</view>
+		<view bindtap="getOpid"class="nav-item" hover-class="none" hover-stop-propagation="false">
+			<view class="nav-item-list iconfont icon-diantai" hover-class="none" hover-stop-propagation="false" />
+			<view class="title" selectable="false" space="false" decode="false">电台</view>
+		</view>
+		<view class="nav-item" hover-class="none" hover-stop-propagation="false">
+			<view class="nav-item-list iconfont icon-zhibo" hover-class="none" hover-stop-propagation="false" />
+			<view class="title" selectable="false" space="false" decode="false">直播</view>
+		</view>
+	</view>
+	<view class="recommenderContainer">
+		<NavHeader title="推荐歌曲" nav="为你精心推荐"></NavHeader>
+		<scroll-view class="scroll-reco" scroll-x enable-flex>
+			<view wx:for="{{recommendList}}" class="list" wx:key="id">
+				<image src="{{item.picUrl}}" />
+				<view class="text-list" hover-class="none" hover-stop-propagation="false">
+				{{item.name}}</view>
+			</view>
+		</scroll-view>
+	</view>
+	
+	<view class="footer" hover-class="none" hover-stop-propagation="false">
+		<NavHeader title="排行榜" nav="热歌风向标"></NavHeader>
+		<swiper wx:if="{{hasrankList}}" bindchange="changeSwiper" circular next-margin="70rpx"  style="height:470rpx" autoplay="true"  indicator-color="ivory" indicator-active-color="#d43c33">
+			<swiper-item wx:for="{{rankList}}" wx:key="name" class="list-bg">
+				<view class="title">
+					{{item.name}}
+				</view>
+				<view wx:for="{{item.tracks}}" wx:key="id" wx:for-item="listItem" wx:for-index="listIndex" class="list-item" hover-class="none" hover-stop-propagation="false">
+					<view class="img">
+					<image class="img" src="{{listItem.al.picUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+					</image>
+					</view>
+					<view class="suoyin">{{listIndex+1}}</view>
+					<view class="name">{{listItem.name}} </view>
+				</view>
+				
+			</swiper-item>
+			
+		</swiper>
+	</view>
+
+</view>

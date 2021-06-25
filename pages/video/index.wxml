@@ -1,0 +1,63 @@
+<view class="container">
+    <view class="header">
+        <view class="img">
+            <image class="" src="/static/images/video/video.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            </image>
+        </view>
+        <view class="search" bindtap="toSearch" hover-class="none" hover-stop-propagation="false">
+            探索更多音乐
+        </view>
+         <view class="img">
+            <image class="" src="/static/images/logo.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            </image>
+        </view>
+    </view>
+
+    <scroll-view scroll-with-animation scroll-into-view="{{'sc'+navId}}" style="height:80rpx;" scroll-x class="navScroll" enable-flex>
+        <view id="{{'sc'+item.id}}" wx:for="{{videoList}}" wx:key="id" class="navItem">
+            <view class="navContent {{ navId == item.id ? 'active':''}} " bindtap="changNav" id="{{item.id}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+    <scroll-view bindscrolltolower="bindscrolltolower" refresher-enabled refresher-triggered="{{istriggered}}" bindrefresherrefresh="bindrefresherrefresh" wx:if="{{hasList}}" class="video-scroll" scroll-y>
+         <view  class="video-item" wx:for="{{list}}" wx:key="id">
+            <!--性能优化-->
+           
+            <video 
+             wx:if="{{videoId === item.data.vid}}"
+             bindplay="handlePlay"
+             object-fit="fill"  
+             poster="{{item.data.coverUrl}}"
+             id="{{item.data.vid}}"
+             bindtimeupdate="handleUpdateTime"
+             bindended="handleEnded"
+             src="{{item.data.urlInfo.url}}"
+             >
+             </video>
+              <image wx:else class="videoimg" bindtap="handlePlay" id="{{item.data.vid}}" class="" src="{{item.data.coverUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            </image>
+            <view class="content" >{{item.data.title}}</view>
+          <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-buoumaotubiao15"></text>
+            <text class="count">{{item.data.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun1"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icon-gengduo"></text>
+          </button>
+        </view>
+      </view>
+
+         </view>
+         
+    </scroll-view>
+
+</view>

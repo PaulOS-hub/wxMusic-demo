@@ -1,0 +1,44 @@
+<view class="recommend">
+    <view class="header">
+        <image class="" src="/static/images/recommendSong/recommendSong.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        </image>
+        <view class="date">
+            <text class="datee">
+            {{day}} / {{month}}
+            </text>
+        </view>
+    </view>
+    <view class="recommend-content">
+        <view class="header-content">
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                播放全部 
+            </view>
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                多选
+            </view>
+        </view>
+        <scroll-view scroll-y class="song-scroll">
+                <view wx:for="{{dailyList}}" data-detail="{{item}}" data-suoyin="{{index}}" bindtap="toSongDetail" wx:key="id" class="song">
+                    <view class="introduction">
+                        <view class="songurl">
+                             <image src="{{item.album.picUrl}}"  mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                        </image>
+                        </view>
+                    <view class="intro">
+                        <view class="author">
+                             {{item.name}}
+                        </view>
+                        <view class="songname">
+                        {{item.artists[0].name}}
+                        </view>
+                    </view>
+                </view>
+                    <view class="more">
+                        <text class="iconfont icon-gengduo" selectable="false" space="false" decode="false">
+                            
+                        </text>
+                    </view>
+                </view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,174 @@
+.songDetail {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.songDetail .songnamedetail {
+    text-align: center;
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    margin-top: 40rpx;
+}
+
+.songDetail .detailimage {
+    width: 100%;
+    height: 274rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 40rpx;
+    left: 50rpx;
+}
+
+.songDetail .circle {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 36%;
+    z-index: 99;
+    top: -8%;
+}
+
+.detailimageAnimation {
+    animation: disc 5s linear infinite 0.7s;
+}
+
+/* 设置动画帧
+  1. FROM TO
+  2. 百分比
+*/
+@keyframes disc {
+    from {
+        transform: 0(360deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotateactive {
+    transition: all 0.7s;
+    transform: rotate(-20deg);
+    /*旋转角度，x轴偏移35 ， y不变*/
+    transform-origin: 35rpx 0;
+}
+
+.rotateunactive {
+    transition: all 0.7s;
+    transform-origin: 35rpx 0;
+    transform: rotate(0deg);
+    /*旋转角度，x轴偏移35 ， y不变*/
+}
+
+
+.songDetail .detailimage image {
+    width: 192rpx;
+    height: 100%;
+    z-index: 2;
+
+
+}
+
+.songDetail .cd {
+    width: 100%;
+    height: 598rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: -90rpx;
+    z-index: 1;
+
+}
+
+.songDetail .cd image {
+    width: 598rpx;
+    height: 100%;
+
+}
+
+.songDetail .cd .music-img {
+    width: 370rpx;
+    height: 370rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 19%;
+}
+
+/* 底部控制区域 */
+.musicControl {
+    position: absolute;
+    bottom: 50rpx;
+    left: 0;
+    border-top: 1rpx solid #fff;
+    width: 100%;
+    display: flex;
+
+}
+
+.musicControl text {
+    width: 20%;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 50rpx;
+}
+
+.musicControl text.big {
+    font-size: 80rpx;
+}
+
+.progressControl {
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    bottom: 200rpx;
+}
+
+.progressControl .starttime,
+.progressControl .endtime {
+    line-height: 80rpx;
+}
+
+
+.barControl {
+    width: 450rpx;
+    height: 4rpx;
+    background-color: rgba(0, 0, 0, .5);
+    margin: auto;
+    position: relative;
+
+}
+
+.audiCurrentBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 4rpx;
+    background: red;
+}
+
+.circle-audio {
+    position: absolute;
+    right: -12rpx;
+    top: -4rpx;
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background: #fff;
+}

@@ -1,0 +1,44 @@
+<view class="songDetail">
+    <view class="authordetail">
+            <view class="songnamedetail">
+            {{songDetail.name}}
+            </view>
+            <view class="detailimage">
+                <view class="circle"></view>
+                <image class="{{isPlay? 'rotateunactive':'rotateactive'}}" src="/static/images/song/needle.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image>
+            </view>
+            <view class="cd {{isPlay?'detailimageAnimation':''}}">
+                <image class="" src="/static/images/song/disc.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image>
+                <image class="music-img" src="{{songDetail.al.picUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image>
+            </view>
+    </view>
+
+
+  <view class="progressControl">
+      <view class="starttime">
+        {{currentTime}}
+      </view>
+      <view class="barControl">
+        <view class="audiCurrentBar" style="width:{{curwidth+'rpx'}}">
+          <view class="circle-audio">
+          </view>
+        </view>
+      </view>
+      <view class="endtime">
+        {{durationTime}}
+      </view>
+  </view>
+
+
+     <!-- 底部控制播放区域 -->
+  <view class="musicControl">
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+    <text class="iconfont icon-shangyishou" id="pre" bindtap="handleSwitch"></text>
+    <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+    <text class="iconfont icon-next" id="next" bindtap="handleSwitch"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+  </view>
+</view>

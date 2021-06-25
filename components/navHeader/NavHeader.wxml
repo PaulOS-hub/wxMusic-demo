@@ -1,0 +1,13 @@
+<!--components/navHeader/NavHeader.wxml-->
+<view class="title">
+	<view class="title-tuijian" hover-class="none" hover-stop-propagation="false">{{title}}</view>
+		<view
+			style="display:flex;align-items:center;justify-content:space-between;font-size:26rpx;margin-top:4rpx;"
+			class=""
+			hover-class="none"
+			hover-stop-propagation="false"
+		>
+			<view class="" hover-class="none" hover-stop-propagation="false">{{nav}}</view>
+			<view class="lookmore" hover-class="none" hover-stop-propagation="false">查看更多</view>
+		</view>
+</view>

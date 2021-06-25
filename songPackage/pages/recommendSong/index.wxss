@@ -1,0 +1,98 @@
+.recommend .header {
+    width: 100%;
+    height: 300rpx;
+    position: relative;
+}
+
+.recommend .header image {
+    width: 100%;
+    height: 100%;
+}
+
+.recommend .header .date {
+    text-align: center;
+    /* line-height: 100rpx; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300rpx;
+    height: 100rpx;
+    margin-left: -150rpx;
+    margin-top: -50rpx;
+    color: #fff
+}
+
+.recommend-content{
+    padding:0 20rpx;
+    background-color: #fff;
+    position: relative;
+    top: -25rpx;
+    border-radius: 15rpx;
+}
+.recommend-content .header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80rpx;
+}
+
+.recommend-content .song{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80rpx;
+    margin:25rpx 0
+}
+
+.recommend-content .song-scroll{
+    width:100%;
+    height: calc(100vh - 380rpx);
+}
+
+.recommend-content .song .introduction .songurl{
+    width:80rpx;
+    height: 80rpx;
+    /* border:1px solid red; */
+}
+.recommend-content .song .introduction .songurl image{
+    width: 100%;
+    height: 100%;
+}
+
+.recommend-content .song .introduction{
+    display: flex;
+    align-items: center;
+}
+
+.recommend-content .song .intro{
+    display: flex;
+    flex-direction: column;
+    height: 80rpx;
+    justify-content: space-between;
+}
+
+.recommend-content .song .intro .author{
+    max-width: 400rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+.recommend-content .song .intro .songname{
+    max-width: 250rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.recommend-content .song .introduction .intro{
+    margin-left:15rpx;
+    font-size: 24rpx;
+}
+.recommend-content .song .more{
+    width:60rpx;
+    height: 80rpx;
+    text-align: right;
+    line-height: 80rpx;
+}

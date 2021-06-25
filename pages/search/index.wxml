@@ -1,0 +1,57 @@
+<view class="searchContainer">
+        <view class="header-search">
+                <view class="searchinput">
+                    <text class="searchIcon iconfont icon-search">
+                    </text>
+                    <input placeholder="{{showKeyword}}" value="{{searchVal}}" bindinput="handleInput" class="inputserach" placeholder-class="holderclass" type="text" />
+                </view>
+                <view class="cancel" bindtap="clearAll" selectable="false" space="false" decode="false">
+                    清空
+                </view>
+        </view>
+
+
+        <view wx:if="{{vagueList.length > 0 && searchVal}}" class="showSearchContent">
+            <view class="searchContentlist">
+                搜索内容：{{searchVal}}
+            </view>
+            <view class="searchList">
+                <view class="searchItem" wx:for="{{vagueList}}" wx:key="id">
+                        <view class="searchIcon iconfont icon-search">
+                    </view>
+                       <view class="itemnamne" selectable="false" space="false" decode="false">
+                            {{item.name}}
+                       </view>
+                </view>
+            </view>
+        </view>
+
+    
+
+
+        <view  class="hotsearch">
+            <view hidden="{{!historyList.length > 0}}" class="history">
+                <view style="color:#d43c33;font-weight:bold;margin-left:0;padding:0 15rpx 0 0;" class="hisTitle">
+                    历史搜索：
+                </view>
+                <view class="hisitem" wx:for="{{historyList}}" wx:key="{{item}}">
+                    {{item}}
+                </view>
+                <view hidden="{{!historyList.length > 0}}" bindtap="deleteHistory" class="iconfont icon-shanchu deleteitem">
+                </view>
+            </view>
+
+            <view class="hot-title">
+                热搜榜
+            </view>
+            <view class="hot-content">
+                    <view wx:for="{{hotList}}" wx:key="id" class="contenlist {{item.iconUrl?'bolder':''}}">
+                            {{item.id+1}} {{item.searchWord}} 
+                        <image wx:if="{{item.iconUrl}}" class="iconimage" src="{{item.iconUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                            
+                        </image>
+                    </view>
+                   
+            </view>
+        </view>
+</view>
