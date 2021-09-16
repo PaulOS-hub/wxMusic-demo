@@ -4,8 +4,8 @@ export default (url, data, method = "GET") => {
         wx.request({
             url: BASE_RUL + url,
             data,
-            header: {
-                cookie: wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) ? wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) : ''
+            header: {  // 数据类型保护，避免报错
+                 cookie: wx.getStorageSync('cookies') && wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) ? wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1) : ''
             },
             method,
             success: res => {
